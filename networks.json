@@ -1,0 +1,8 @@
+{
+  "mainnet": {
+    "Controller": {
+      "address": "0xde40521535e870d7de1b5a9fbab2dd9dac908d30",
+      "startBlock": 1000000
+    }
+  }
+}

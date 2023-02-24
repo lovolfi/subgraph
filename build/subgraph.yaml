@@ -1,0 +1,60 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Controller
+    network: mainnet
+    source:
+      address: "0xde40521535e870d7de1b5a9fbab2dd9dac908d30"
+      abi: Controller
+      startBlock: 1000000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - BurnShort
+        - DepositCollateral
+        - FeeRateUpdated
+        - FeeRecipientUpdated
+        - Liquidate
+        - MintShort
+        - NormalizationFactorUpdated
+        - OpenVault
+        - OwnershipTransferred
+        - RedeemLong
+        - RedemptionDiscountUpdated
+        - UpdateOperator
+        - WithdrawCollateral
+      abis:
+        - name: Controller
+          file: Controller/abis/Controller.json
+      eventHandlers:
+        - event: BurnShort(address,uint256,uint256)
+          handler: handleBurnShort
+        - event: DepositCollateral(address,uint256,uint256)
+          handler: handleDepositCollateral
+        - event: FeeRateUpdated(uint256,uint256)
+          handler: handleFeeRateUpdated
+        - event: FeeRecipientUpdated(address,address)
+          handler: handleFeeRecipientUpdated
+        - event: Liquidate(address,uint256,uint256,uint256)
+          handler: handleLiquidate
+        - event: MintShort(address,uint256,uint256)
+          handler: handleMintShort
+        - event: NormalizationFactorUpdated(uint256,uint256,uint256,uint256)
+          handler: handleNormalizationFactorUpdated
+        - event: OpenVault(address,uint256)
+          handler: handleOpenVault
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RedeemLong(address,uint256,uint256,uint256)
+          handler: handleRedeemLong
+        - event: RedemptionDiscountUpdated(uint256,uint32)
+          handler: handleRedemptionDiscountUpdated
+        - event: UpdateOperator(address,uint256,address)
+          handler: handleUpdateOperator
+        - event: WithdrawCollateral(address,uint256,uint256)
+          handler: handleWithdrawCollateral
+      file: Controller/Controller.wasm

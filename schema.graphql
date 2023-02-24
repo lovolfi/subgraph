@@ -1,0 +1,127 @@
+type BurnShort @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  amount: BigInt! # uint256
+  vaultId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DepositCollateral @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  vaultId: BigInt! # uint256
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type FeeRateUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldFee: BigInt! # uint256
+  newFee: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type FeeRecipientUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldFeeRecipient: Bytes! # address
+  newFeeRecipient: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Liquidate @entity(immutable: true) {
+  id: Bytes!
+  liquidator: Bytes! # address
+  vaultId: BigInt! # uint256
+  debtAmount: BigInt! # uint256
+  collateralPaid: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MintShort @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  amount: BigInt! # uint256
+  vaultId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NormalizationFactorUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldNF: BigInt! # uint256
+  newNF: BigInt! # uint256
+  lastModifiedTimestamp: BigInt! # uint256
+  timestamp: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OpenVault @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  vaultId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RedeemLong @entity(immutable: true) {
+  id: Bytes!
+  redeemer: Bytes! # address
+  vaultId: BigInt! # uint256
+  wPowerPerpAmount: BigInt! # uint256
+  payoutAmount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RedemptionDiscountUpdated @entity(immutable: true) {
+  id: Bytes!
+  vaultId: BigInt! # uint256
+  redemptionDiscount: BigInt! # uint32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UpdateOperator @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  vaultId: BigInt! # uint256
+  operator: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type WithdrawCollateral @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  vaultId: BigInt! # uint256
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
