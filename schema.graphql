@@ -1,3 +1,7 @@
+# -------------------------------- #
+# Auto generated Controller events #
+# -------------------------------- #
+
 type BurnShort @entity(immutable: true) {
   id: Bytes!
   sender: Bytes! # address
@@ -124,4 +128,17 @@ type WithdrawCollateral @entity(immutable: true) {
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
+}
+
+# --------------- #
+# Custom Entities #
+# --------------- #
+
+type Vault @entity {
+  id: ID!
+  owner: Bytes! # address
+  operator: Bytes! # address
+  shortAmount: BigInt! # uint256
+  collateralAmount: BigInt!
+  discountFactor: BigInt! # uint32
 }

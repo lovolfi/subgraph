@@ -6,7 +6,7 @@ dataSources:
     name: Controller
     network: mainnet
     source:
-      address: "0xde40521535e870d7de1b5a9fbab2dd9dac908d30"
+      address: "0x64187ae08781B09368e6253F9E94951243A493D5"
       abi: Controller
       startBlock: 1000000
     mapping:
@@ -27,6 +27,7 @@ dataSources:
         - RedemptionDiscountUpdated
         - UpdateOperator
         - WithdrawCollateral
+        - Vault
       abis:
         - name: Controller
           file: Controller/abis/Controller.json

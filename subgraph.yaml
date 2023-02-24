@@ -27,6 +27,8 @@ dataSources:
         - RedemptionDiscountUpdated
         - UpdateOperator
         - WithdrawCollateral
+        # custom
+        - Vault
       abis:
         - name: Controller
           file: ./abis/Controller.json

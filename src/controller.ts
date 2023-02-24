@@ -1,3 +1,4 @@
+import { BigInt } from "@graphprotocol/graph-ts"
 import {
   BurnShort as BurnShortEvent,
   DepositCollateral as DepositCollateralEvent,
@@ -26,7 +27,8 @@ import {
   RedeemLong,
   RedemptionDiscountUpdated,
   UpdateOperator,
-  WithdrawCollateral
+  WithdrawCollateral,
+  Vault
 } from "../generated/schema"
 
 export function handleBurnShort(event: BurnShortEvent): void {
@@ -150,6 +152,14 @@ export function handleOpenVault(event: OpenVaultEvent): void {
   entity.transactionHash = event.transaction.hash
 
   entity.save()
+
+  // handle vault creation
+  let vault = new Vault(event.params.vaultId.toString())
+  vault.collateralAmount = BigInt.fromI32(0)
+  vault.shortAmount = BigInt.fromI32(0)
+  vault.discountFactor = BigInt.fromI32(10**18)
+  vault.owner = event.params.sender
+  vault.save()
 }
 
 export function handleOwnershipTransferred(
